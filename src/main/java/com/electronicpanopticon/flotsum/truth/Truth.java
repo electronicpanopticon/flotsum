@@ -2,7 +2,6 @@ package com.electronicpanopticon.flotsum.truth;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -10,6 +9,23 @@ import lombok.RequiredArgsConstructor;
 public class Truth {
 
     @Getter private final boolean isTrue;
+
+    public Truth flip() {
+        return this.isTrue() ? Truth.of(false) : Truth.of(true);
+    }
+
+    public static Truth of(boolean b) {
+        return new Truth(b);
+    }
+
+    public static Truth of(int i) {
+        return new Truth((i > 0));
+    }
+
+    @Override
+    public String toString() {
+        return isTrue ? "True" : "False";
+    }
 
     public static Truth of(String v) {
         switch (v.trim().toUpperCase()) {
@@ -27,22 +43,5 @@ public class Truth {
                     return new Truth(true);
         }
         return new Truth(false);
-    }
-
-    public static Truth of(boolean b) {
-        return new Truth(b);
-    }
-
-    public static Truth of(int i) {
-        return new Truth((i > 0));
-    }
-
-    @Override
-    public String toString() {
-        return isTrue ? "True" : "False";
-    }
-
-    public Truth flip() {
-        return this.isTrue() ? Truth.of(false) : Truth.of(true);
     }
 }

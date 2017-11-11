@@ -24,7 +24,7 @@ public class Truth {
 
     @Override
     public String toString() {
-        return isTrue ? "True" : "False";
+        return isTrue() ? "True" : "False";
     }
 
     public static Truth of(String v) {

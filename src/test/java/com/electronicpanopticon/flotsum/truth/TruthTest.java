@@ -39,11 +39,8 @@ public class TruthTest {
         assertTrue(Truth.of("Nope").flip().isTrue());
     }
 
-    @Test public void toString_true_truth() {
+    @Test public void toStringTest() {
         assertEquals("True", Truth.of("yup").toString());
-    }
-
-    @Test public void toString_false_true() {
         assertEquals("False", Truth.of("nope").toString());
     }
 }

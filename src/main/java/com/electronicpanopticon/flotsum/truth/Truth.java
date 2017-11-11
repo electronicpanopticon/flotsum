@@ -2,6 +2,7 @@ package com.electronicpanopticon.flotsum.truth;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -39,5 +40,9 @@ public class Truth {
     @Override
     public String toString() {
         return isTrue ? "True" : "False";
+    }
+
+    public Truth flip() {
+        return this.isTrue() ? Truth.of(false) : Truth.of(true);
     }
 }

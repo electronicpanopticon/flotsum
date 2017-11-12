@@ -14,17 +14,17 @@ public class Truth {
         return this.isTrue() ? Truth.of(false) : Truth.of(true);
     }
 
+    @Override
+    public String toString() {
+        return isTrue() ? "True" : "False";
+    }
+
     public static Truth of(boolean b) {
         return new Truth(b);
     }
 
     public static Truth of(int i) {
         return new Truth((i > 0));
-    }
-
-    @Override
-    public String toString() {
-        return isTrue() ? "True" : "False";
     }
 
     public static Truth of(String v) {
